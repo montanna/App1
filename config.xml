@@ -22,6 +22,10 @@
   <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0"/>
   <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0"/>
   <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
   <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2"/>
   <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
   <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
@@ -33,6 +37,10 @@
     <icon src="www/res/icon/android/drawable-xhdpi-icon.png" density="xhdpi"/>
     <icon src="www/res/icon/android/drawable-xxhdpi-icon.png" density="xxhdpi"/>
     <icon src="www/res/icon/android/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> origin/master
   </platform>
   <platform name="ios">
     <icon src="www/res/icon/ios/icon.png" platform="ios" width="57" height="57"/>
@@ -51,15 +59,27 @@
     <icon src="www/res/icon/ios/icon-small.png" platform="ios" width="29" height="29"/>
     <icon src="www/res/icon/ios/icon-small@2x.png" platform="ios" width="58" height="58"/>
     <icon src="www/res/icon/ios/icon-small@3x.png" platform="ios" width="87" height="87"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
   </platform>
   <platform name="wp8">
     <icon src="www/res/icon/wp8/ApplicationIcon.png" platform="wp8" width="99" height="99"/>
     <icon src="www/res/icon/wp8/Background.png" platform="wp8" width="159" height="159"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
   </platform>
   <platform name="windows">
     <icon src="www/res/icon/windows/Square150x150Logo.scale-100.png" platform="windows" width="150" height="150"/>
     <icon src="www/res/icon/windows/Square30x30Logo.scale-100.png" platform="windows" width="30" height="30"/>
     <icon src="www/res/icon/windows/StoreLogo.scale-100.png" platform="windows" width="50" height="50"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
     <icon src="www/res/icon/windows/StoreLogo.scale-240.png" platform="windows" width="120" height="120"/>
     <icon src="www/res/icon/windows/Square44x44Logo.scale-100.png" platform="windows" width="44" height="44"/>
     <icon src="www/res/icon/windows/Square44x44Logo.scale-240.png" platform="windows" width="106" height="106"/>
@@ -70,6 +90,10 @@
     <icon src="www/res/icon/windows/Square310x310Logo.scale-100.png" platform="windows" width="310" height="310"/>
     <icon src="www/res/icon/windows/Wide310x150Logo.scale-100.png" platform="windows" width="310" height="150"/>
     <icon src="www/res/icon/windows/Wide310x150Logo.scale-240.png" platform="windows" width="744" height="360"/>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
   </platform>
   <access origin="*"/>
   <allow-intent href="http://*/*"/>
