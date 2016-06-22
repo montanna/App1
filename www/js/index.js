@@ -1,52 +1,72 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-  StatusBar.backgroundColorByHexString("#03A9F4");
+document.addEventListener('deviceready', whenReady, false);
 
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+MedsViewModel = function() {
+    var self = this;
+    self.meds = ko.observableArray([]);
+    self.name = ko.observable("Medication name");
+    self.taken = ko.observable(false);
+    self.Med = function(name, taken) {
+        this.medName = ko.observable(name);
+        this.medTaken = ko.observable(taken);
     }
 
-};
+
+    self.addMed = function() {
+        self.newMed = new self.Med(self.name(), self.taken());
+        self.meds.push(self.newMed);
+        console.log(self.meds());
+        console.log(self.meds().length);
+    }
+
+    self.toggleTaken = function(data) {
+        var target = $(event.target);
+        if (this.medTaken) {
+            this.medTaken = false;
+            target.removeClass('checked');
+        } else {
+            this.medTaken = true;
+            target.addClass('checked');
+        }
+        console.log(this.medTaken);
+    }
+
+    self.clearName = function() {
+        self.name("");
+    }
+
+
+
+    self.midnightTask = function() {
+        for (var i = 0; i < self.meds.length; i++) {
+            self.meds[i].medTaken = false;
+        }
+        $(".checked").removeClass("checked");
+    }
+
+    setTimeout(
+        self.midnightTask,
+        moment("24:00:00", "hh:mm:ss").diff(moment(), 'seconds') * 1000
+    );
+
+
+}
+
+function whenReady() {
+    StatusBar.backgroundColorByHexString("#03A9F4");
+
+    function initControls() {
+        $(".button").on("click", function() {
+            $(".button").addClass("pressed");
+            setTimeout(function() {
+                $(".pressed").removeClass("pressed");
+            }, 150);
+            navigator.notification.alert("Good job.", midnightTask, "You clicked the button", "Thanks");
+        });
+
+    }
+
+    medsVM = new MedsViewModel();
+    ko.applyBindings(medsVM, $(".medView")[0]);
+    initControls();
+});

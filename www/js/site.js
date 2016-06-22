@@ -1,3 +1,4 @@
+document.addEventListener('deviceready', whenReady, false);
 MedsViewModel = function() {
     var self = this;
     self.meds = ko.observableArray([]);
@@ -49,7 +50,7 @@ MedsViewModel = function() {
 
 }
 
-$(document).ready(function() {
+function whenReady() {
     var isAndroid = /(android)/i.test(navigator.userAgent);
     if (isAndroid) {
         StatusBar.backgroundColorByHexString("#03A9F4");
@@ -69,4 +70,4 @@ $(document).ready(function() {
     medsVM = new MedsViewModel();
     ko.applyBindings(medsVM, $(".medView")[0]);
     initControls();
-});
+};
